@@ -1,0 +1,14 @@
+FROM python:3.8.10
+WORKDIR /WatchU
+
+# Install packages
+RUN pip install -r requirements.txt
+
+# Copy all src files
+COPY . .
+
+# Run the application on the port 5000
+EXPOSE 5000
+
+RUN set FLASK_APP=__init__
+CMD flask run
